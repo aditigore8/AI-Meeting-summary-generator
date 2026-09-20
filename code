@@ -1,0 +1,77 @@
+# ============================================
+# MEETMIND — CREATE GITHUB-READY PROJECT
+# ============================================
+
+import os, shutil
+
+PROJECT = "/content/MeetMind"
+
+if os.path.exists(PROJECT):
+    shutil.rmtree(PROJECT)
+
+os.makedirs(PROJECT, exist_ok=True)
+
+# Copy your current app code from the running Gradio notebook
+app_code = '''
+# MeetMind — AI Meeting Summary Generator
+# Built with Gradio, Groq, Whisper, GPT-OSS 120B, SQLite, FFmpeg and yt-dlp
+
+# NOTE:
+# Copy the complete Cell 1 + Cell 2 code from the notebook here.
+'''
+
+requirements = """gradio
+groq
+yt-dlp
+"""
+
+gitignore = """__pycache__/
+*.pyc
+.env
+*.db
+*.sqlite
+*.sqlite3
+.ipynb_checkpoints/
+"""
+
+readme = """# MeetMind — AI Meeting Summary Generator
+
+AI-powered meeting intelligence application that transforms meeting transcripts, audio/video recordings and public media URLs into structured meeting insights.
+
+## Features
+
+- User Login & Signup
+- Dashboard
+- Meeting History
+- Transcript Analysis
+- Audio/Video Transcription
+- Public Media URL Processing
+- AI Meeting Summary
+- Key Points
+- Decisions
+- Action Items
+- Unresolved Issues
+- Topics
+
+## Tech Stack
+
+- Python
+- Gradio
+- Groq API
+- Whisper Large V3 Turbo
+- GPT-OSS 120B
+- SQLite
+- FFmpeg
+- yt-dlp
+
+## AI Workflow
+
+Input → Whisper Transcription → GPT-OSS 120B → Structured Meeting Insights
+
+## Run
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+python app.py
